@@ -23,3 +23,9 @@ docker run -d --name=my-slim-nodered \
     node-red-slim:latest
 ```
 here the encrypted password is `password` as an example
+
+### Build and Run using `docker-compose`
+
+```bash
+docker-compose build nodered-slim && docker-compose up
+```

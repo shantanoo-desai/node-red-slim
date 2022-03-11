@@ -1,7 +1,7 @@
 {
     "name": "node-red-slim-container",
     "description": "A Slim Node-RED Docker Image running on Alpine Container",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "GNU General Public License v3.0",
     "maintainers": [
         "Shantanoo <Shan> Desai"
@@ -11,7 +11,6 @@
     },
     "dependencies": {
         "node-red": ">=2.2.0",
-        "node-red-contrib-web-worldmap": "*",
         "node-red-dashboard": "*"
     },
     "scripts": {

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nodered-slim:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: slim-red
+    image: shantanoodesai/node-red-slim:latest
+    env_file:
+      - .env.example
+    ports:
+      - "1880:1880"
+    
