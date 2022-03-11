@@ -1,0 +1,57 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Node-Red HealthCheck Flow",
+        "disabled": false,
+        "info": "# Healthcheck Flow\n\n- Provides a simple __HTTP GET__ API `/health`\n- Returns __HTTP 200__ response with body \"OK\""
+    },
+    {
+        "id": "7c3a93f70a2b990a",
+        "type": "http in",
+        "z": "f6f2187d.f17ca8",
+        "name": "healthcheck API",
+        "url": "/health",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "64c995f0808eef31"
+            ]
+        ],
+        "info": "## Healthcheck HTTP API\n\n- __HTTP GET__ on `/health` should provide __HTTP 200__ response with response body `OK`"
+    },
+    {
+        "id": "f3da0fdf99cbba3e",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "HealthCheckNode",
+        "statusCode": "200",
+        "headers": {},
+        "x": 930,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "64c995f0808eef31",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "HTTP healthcheck response",
+        "func": "msg.payload = \"OK\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "f3da0fdf99cbba3e"
+            ]
+        ]
+    }
+]
