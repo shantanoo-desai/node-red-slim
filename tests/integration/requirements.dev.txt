@@ -1,0 +1,2 @@
+pytest==7.0.1
+pytest-docker-compose==3.2.1
