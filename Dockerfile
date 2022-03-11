@@ -15,9 +15,11 @@ FROM base as prod
 
 RUN mkdir -p /usr/src/node-red && mkdir /data
 
+COPY --from=build /data/ /data/
+
 WORKDIR /usr/src/node-red
 COPY settings.js /data/settings.js
-COPY --from=build /data/ /data/
+
 COPY --from=build /usr/src/node-red  /usr/src/node-red
 
 CMD ["npm", "start"]
