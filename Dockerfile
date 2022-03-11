@@ -19,6 +19,7 @@ COPY --from=build /data/ /data/
 
 WORKDIR /usr/src/node-red
 COPY settings.js /data/settings.js
+COPY flows.json /data/flows.json
 
 COPY --from=build /usr/src/node-red  /usr/src/node-red
 
