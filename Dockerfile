@@ -1,6 +1,6 @@
 FROM alpine:3.13 AS base
 
-MAINTAINER "Shantanoo <Shan> Desai <shantanoo.desai@gmail.com>"
+LABEL AUTHOR="Shantanoo <Shan> Desai <shantanoo.desai@gmail.com>"
 
 USER root
 RUN apk add nodejs npm python3 udev make g++ linux-headers
