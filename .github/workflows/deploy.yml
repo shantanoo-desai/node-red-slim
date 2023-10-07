@@ -1,9 +1,6 @@
 name: Test & Deploy Build Images
 
-on:
-  push:
-    tags:
-      - "*.*.*"
+on: [push]
 
 jobs:
   
