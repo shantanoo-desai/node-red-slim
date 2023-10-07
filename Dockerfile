@@ -1,6 +1,6 @@
 FROM alpine:3.13 AS base
 
-LABEL AUTHOR="Shantanoo <Shan> Desai <shantanoo.desai@gmail.com>"
+LABEL AUTHOR="Corey Thompson <corey.dwayne.thompson@gmail.com>"
 
 RUN apk add --no-cache \
             nodejs \

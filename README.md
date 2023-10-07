@@ -29,3 +29,6 @@ here the encrypted password is `password` as an example
 ```bash
 docker-compose build nodered-slim && docker-compose up
 ```
+
+### Mentions
+Thank you to Shantanoo Desai <shantanoo.desai@gmail.com> for providing a fork as the original template.
