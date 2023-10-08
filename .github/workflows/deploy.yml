@@ -59,6 +59,8 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            #image is using node red 3.1.0 w/ node v18
+            type=raw,value=3.1.0-18,enable={{is_default_branch}}
             type=sha,prefix={{branch}}-,suffix=-{{date 'X'}}
 
       - name: Setup QEMU
