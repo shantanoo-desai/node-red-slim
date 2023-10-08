@@ -2,9 +2,16 @@ name: Test & Deploy Build Images
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  schedule:
+    - cron: "0 10 * * *"
   push:
+    branches:
+      - "**"
+    tags:
+      - "v*.*.*"
   pull_request:
+    branches:
+      - "main"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -54,14 +61,20 @@ jobs:
         
       - name: Extract metadata for the Docker image
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ghcr.io/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha     
             type=raw,value=latest,enable={{is_default_branch}}
             #image is using node red 3.1.0 w/ node v18
             type=raw,value=3.1.0-18,enable={{is_default_branch}}
-            type=sha,prefix={{branch}}-,suffix=-{{date 'X'}}
 
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v1
@@ -81,7 +94,7 @@ jobs:
       
       - name: Build and Push Image
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
