@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: slim-red
-    image: tulsasoftware/node-red-slim:latest
+    image: ghcr.io/tulsasoftware/node-red-slim:latest
     env_file:
       - .env.example
     ports:

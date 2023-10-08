@@ -4,7 +4,7 @@ Current size is __374MB__ with basic Node-Red UI.
 
 ## Multi-Stage Docker
 
-Base and production ready images on `alpine:3.13`, Build Stage through: `nodered/node-red:2.2.2-minimal`
+Base and production ready images on `alpine:3.18`, Build Stage through: `nodered/node-red:3.1.0-18-minimal`
 
 ## Usage
 
