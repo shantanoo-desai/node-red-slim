@@ -6,6 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: slim-red
+    #required on raspberry pi - alpine slim >3.13 fails to ping
+    #security-opt:
+    #  - seccomp=unconfined
     image: ghcr.io/tulsasoftware/node-red-slim:latest
     env_file:
       - .env.example

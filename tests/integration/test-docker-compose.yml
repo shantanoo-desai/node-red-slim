@@ -5,6 +5,9 @@ services:
     build:
       context: ../../
       dockerfile: Dockerfile
+    #required on raspberry pi - alpine slim >3.13 fails to ping
+    #security-opt:
+    #  - seccomp=unconfined
     env_file:
       - ../../.env.example
     ports:
