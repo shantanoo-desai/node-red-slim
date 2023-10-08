@@ -1,4 +1,4 @@
-FROM alpine:3.18 AS base
+FROM node:18-alpine3.18 AS base
 
 LABEL AUTHOR="Corey Thompson <corey.dwayne.thompson@gmail.com>"
 
