@@ -24,6 +24,15 @@ docker run -d --name=my-slim-nodered \
 ```
 here the encrypted password is `password` as an example
 
+### Raspberry Pi
+There is a known issue when running on raspberry pi which requires the following when launching the container. The `--security-opt seccomp=unconfined` be added to your run command or to your compose file:
+
+```
+    #required on raspberry pi - alpine slim >3.13 fails to ping
+    security-opt:
+      - seccomp=unconfined
+```
+
 ### Build and Run using `docker-compose`
 
 ```bash
