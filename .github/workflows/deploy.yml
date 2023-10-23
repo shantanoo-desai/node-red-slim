@@ -3,7 +3,7 @@ name: Test & Deploy Build Images
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 10 * * 0"
   push:
     branches:
       - "**"
